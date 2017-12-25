@@ -1,0 +1,13 @@
+#!/usr/bin/env node
+
+var consts = require('../config/consts');
+
+var debug = require('debug')(consts.APP_NAME);
+var app = require('../app');
+var config = require('../config/config');
+
+app.set('port', config.PORT || 3000);
+
+var server = app.listen(app.get('port'),'0.0.0.0', function() {
+  console.log('Express server listening on port ' + server.address().port);
+});
